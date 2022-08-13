@@ -1,0 +1,14 @@
+.idea
+/environment.env
+__pycache__/
+**/__pycache__
+.env
+sqlite3.db
+.vscode/
+cv_files/
+chromedriver
+.spyproject/
+test_photo/
+/media/
+DS_Store
+/static/
