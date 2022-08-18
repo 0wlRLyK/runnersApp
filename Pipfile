@@ -10,9 +10,13 @@ pre-commit = "*"
 psycopg2 = "*"
 djangorestframework = "*"
 djangorestframework-simplejwt = "*"
-django-imageit = "*"
 drf-yasg = "*"
 django-cors-headers = "*"
+django-file-field-utils = "*"
+django-ordered-model = "*"
+django-jazzmin = "*"
+django-cloudinary-storage = "*"
+cloudinary = "*"
 
 [dev-packages]
 

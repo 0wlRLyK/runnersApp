@@ -12,3 +12,4 @@ test_photo/
 /media/
 DS_Store
 /static/
+/app/program.ts
