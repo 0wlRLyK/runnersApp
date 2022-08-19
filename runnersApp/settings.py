@@ -49,8 +49,10 @@ INSTALLED_APPS = [
     'drf_yasg',
     'corsheaders',
     'ordered_model',
+    'authemail',
 
-    'app.apps.AppConfig'
+    'app',
+    'users',
 ]
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': (
@@ -144,7 +146,7 @@ USE_TZ = True
 STATIC_URL = 'static/'
 MEDIA_URL = '/media/'
 DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
-
+AUTH_USER_MODEL = "users.User"
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
@@ -270,3 +272,13 @@ CLOUDINARY_STORAGE = {
     'API_KEY': os.environ.get("CLOUDINARY_API_KEY"),
     'API_SECRET': os.environ.get("CLOUDINARY_API_SECRET"),
 }
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_USE_TLS = True
+EMAIL_PORT = 587
+EMAIL_HOST_USER = os.environ.get("EMAIL_HOST_USER")
+EMAIL_HOST_PASSWORD = os.environ.get("EMAIL_HOST_PASSWORD")
+
+EMAIL_FROM = os.environ.get('EMAIL_FROM', 'JulGrabar&0wlRlyK Foundation <noreply@running-app-api.herokuapp.com>')
+EMAIL_BCC = os.environ.get('EMAIL_BCC', 'noreply@running-app-api.herokuapp.com')
+EMAIL_USE_SSL = False

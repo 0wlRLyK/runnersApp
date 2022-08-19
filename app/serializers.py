@@ -4,6 +4,14 @@ from app import models
 
 
 class WeekSerializer(serializers.ModelSerializer):
+    is_passed = serializers.SerializerMethodField()
+
+    def get_is_passed(self, obj):
+        request = self.context.get("request")
+        if hasattr(request, "user") and request.user.is_authenticated:
+            return request.user.trainings.filter(pk=obj.pk).exists()
+        return False
+
     class Meta:
         model = models.Week
         fields = "__all__"
@@ -12,6 +20,13 @@ class WeekSerializer(serializers.ModelSerializer):
 class TrainingSerializer(serializers.ModelSerializer):
     workout_duration = serializers.ReadOnlyField()
     clear_duration = serializers.ReadOnlyField()
+    is_passed = serializers.SerializerMethodField()
+
+    def get_is_passed(self, obj):
+        request = self.context.get("request")
+        if hasattr(request, "user"):
+            return request.user.trainings.filter(pk=obj.pk).exists()
+        return False
 
     class Meta:
         model = models.Training
@@ -25,7 +40,7 @@ class ExerciseTypeSerializer(serializers.ModelSerializer):
 
 
 class ExerciseSerializer(serializers.ModelSerializer):
-    exercise_type = ExerciseTypeSerializer()
+    exercise_type = ExerciseTypeSerializer(read_only=True)
 
     class Meta:
         model = models.Exercise

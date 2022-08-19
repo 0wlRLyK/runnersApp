@@ -17,6 +17,7 @@ django-ordered-model = "*"
 django-jazzmin = "*"
 django-cloudinary-storage = "*"
 cloudinary = "*"
+django-rest-authemail = "*"
 
 [dev-packages]
 

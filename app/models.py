@@ -13,6 +13,10 @@ class Week(OrderedModel):
     def __str__(self):
         return self.title
 
+    @property
+    def last_training(self):
+        return self.trainings.last()
+
     def admin_image(self):
         if self.image:
             return mark_safe(f"<img src='{self.image.url}' height='120' />")
@@ -33,6 +37,10 @@ class Training(OrderedModel):
     has_warm_up = models.BooleanField(default=True)
     has_cool_down = models.BooleanField(default=True)
     order_with_respect_to = "week"
+
+    @property
+    def is_last_training(self):
+        return self.week.last_training.pk == self.pk
 
     def save(self, *args, **kwargs):
         self.duration = update_duration(self, do_update=False)

@@ -1,4 +1,5 @@
 from rest_framework import generics
+from rest_framework.permissions import DjangoModelPermissionsOrAnonReadOnly
 from rest_framework.response import Response
 
 from app import models, serializers
@@ -23,6 +24,7 @@ class DetailRelatedObjectsListAPIView(DetailRelatedObjectsListMixin,
     """
     related_objects_name = None
     related_objects_serializer = None
+    permission_classes = [DjangoModelPermissionsOrAnonReadOnly]
 
     def get(self, request, *args, **kwargs):
         return self.retrieve(request, *args, **kwargs)
@@ -31,13 +33,15 @@ class DetailRelatedObjectsListAPIView(DetailRelatedObjectsListMixin,
 class WeekListView(generics.ListAPIView):
     queryset = models.Week.objects.all()
     serializer_class = serializers.WeekSerializer
+    permission_classes = [DjangoModelPermissionsOrAnonReadOnly]
 
 
 class WeekDetailView(DetailRelatedObjectsListAPIView):
     queryset = models.Week.objects.all()
     serializer_class = serializers.WeekSerializer
     related_objects_name = "trainings"
-    related_objects_serializer = serializers.ExerciseSerializer
+    related_objects_serializer = serializers.TrainingSerializer
+    permission_classes = [DjangoModelPermissionsOrAnonReadOnly]
 
 
 class TrainingDetailView(DetailRelatedObjectsListAPIView):
@@ -45,3 +49,4 @@ class TrainingDetailView(DetailRelatedObjectsListAPIView):
     serializer_class = serializers.TrainingSerializer
     related_objects_name = "exercises"
     related_objects_serializer = serializers.ExerciseSerializer
+    permission_classes = [DjangoModelPermissionsOrAnonReadOnly]

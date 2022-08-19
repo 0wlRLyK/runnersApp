@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "6161f58eb7aaf1e6e685107013dd35b5719f18fec0e6a8aa738248f77caff7fc"
+            "sha256": "b982cf514cdf1504619478794ce2437d9929b7622a111a0405821f8890aaa6c5"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -139,6 +139,14 @@
             ],
             "index": "pypi",
             "version": "==3.6"
+        },
+        "django-rest-authemail": {
+            "hashes": [
+                "sha256:146dd597d9156a8deb46340549f13fa4f529ea4e311889166bbd361d68c48802",
+                "sha256:f6018ed3b1008179a7554fc4986f590f1f38bb8074448d6528d5641f7beac67a"
+            ],
+            "index": "pypi",
+            "version": "==2.1.4"
         },
         "djangorestframework": {
             "hashes": [
@@ -692,11 +700,11 @@
         },
         "setuptools": {
             "hashes": [
-                "sha256:101bf15ca723beef42c8db91a761f3748d4d697e17fae904db60c0b619d8d094",
-                "sha256:39275e7aafa4a4f0f4308f2302c6ee384dcdacdbaacc1e30dcbb6fd824c625bb"
+                "sha256:10602cd0a6f5feab6656e9587f9075292ab777c5200f3bf00293ecd23d9f2788",
+                "sha256:d2e010624c781b26ad6629a8de9832327cf853dea93894487979e55f9ad06857"
             ],
             "markers": "python_version >= '3.7'",
-            "version": "==65.0.2"
+            "version": "==65.1.0"
         },
         "six": {
             "hashes": [
