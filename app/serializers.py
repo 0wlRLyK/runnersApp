@@ -9,7 +9,7 @@ class WeekSerializer(serializers.ModelSerializer):
     def get_is_passed(self, obj):
         request = self.context.get("request")
         if hasattr(request, "user") and request.user.is_authenticated:
-            return request.user.trainings.filter(pk=obj.pk).exists()
+            return request.user.weeks.filter(week_id=obj.pk).exists()
         return False
 
     class Meta:
@@ -24,8 +24,9 @@ class TrainingSerializer(serializers.ModelSerializer):
 
     def get_is_passed(self, obj):
         request = self.context.get("request")
+        print(request)
         if hasattr(request, "user"):
-            return request.user.trainings.filter(pk=obj.pk).exists()
+            return request.user.trainings.filter(training_id=obj.pk).exists()
         return False
 
     class Meta:

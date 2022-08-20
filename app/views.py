@@ -12,7 +12,7 @@ class DetailRelatedObjectsListMixin:
         data = serializer.data
         queryset = getattr(getattr(instance, self.related_objects_name, None), "all", [])()
 
-        related_serializer = self.related_objects_serializer(queryset, many=True)
+        related_serializer = self.related_objects_serializer(queryset, many=True, context={"request": request})
         data[self.related_objects_name] = related_serializer.data
         return Response(data)
 
