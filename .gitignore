@@ -13,3 +13,4 @@ test_photo/
 DS_Store
 /static/
 /app/program.ts
+/prod.env

@@ -18,6 +18,7 @@ django-jazzmin = "*"
 django-cloudinary-storage = "*"
 cloudinary = "*"
 django-rest-authemail = "*"
+gunicorn = "*"
 
 [dev-packages]
 
