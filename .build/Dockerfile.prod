@@ -99,7 +99,8 @@ USER app
 
 
 
-
+EXPOSE 8000
+STOPSIGNAL SIGTERM
 # copy project
 COPY . $APP_HOME
 ENTRYPOINT ["/home/app/web/entrypoint.prod.sh"]
