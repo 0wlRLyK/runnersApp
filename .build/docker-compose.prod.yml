@@ -16,7 +16,7 @@ services:
       - 5432
   web:
     build:
-      context: ..
+      context: ../
       dockerfile: ".build/Dockerfile.prod"
     command: gunicorn runnersApp.wsgi:application --bind 0.0.0.0:8000
     volumes:
